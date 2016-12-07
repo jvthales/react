@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="A description of the page - Score google:n">
+	<meta name="author" content="Thales Valle">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- SITE TITLE -->
+	<title>React</title>
+
+	<link rel="stylesheet" href="css/master.css" />
+	
+	<script src="js/react.0.13.3.js"></script>
+	<script src="js/JSXTransformer-0.13.3.js"></script>
+
+</head>
+
+<body>
+
+	<div id="card"></div>
+	
+	
+	<script type="text/jsx">
+	
+		var Card = React.createClass({
+	
+			getInitialState : function(){
+				return {
+					logo: "bl-prod-outubro.png",
+					text: "Primeiro aplicativo react.js"
+				}
+			},
+			
+			changeCard : function(){
+			
+				this.setState({
+					logo: "snorlano.png",
+					text: "Há! Snorlano S2"
+				})
+			
+			},
+			
+			render : function(){
+				var image = 'img/' + this.state.logo;
+				return (
+					<div className='Card'>
+						<img src={image} alt='' />
+						<p>{this.state.text}</p>
+						<button onClick={this.changeCard}>Just do it!</button>
+					</div>
+				)
+			}
+		})
+		React.render( <Card/>,document.getElementById('card'))
+	
+	</script>
+
+</body>
+</html>
